@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Gedonist</name>
+    </assembly>
+    <members>
+        <member name="T:Gedonist.Controllers.CategoryController">
+            <summary>
+            Все операции с базовыми категориями
+            </summary>
+        </member>
+        <member name="M:Gedonist.Controllers.CategoryController.#ctor(Gedonist.Core.Interfaces.ICategoriesService)">
+            <summary>
+            Все операции с базовыми категориями
+            </summary>
+        </member>
+        <member name="M:Gedonist.Controllers.CategoryController.GetAllWithData">
+            <summary>
+            Доступ ко всем категориям
+            </summary>
+            <returns>Все свойства категории/NotFound</returns>
+        </member>
+        <member name="M:Gedonist.Controllers.CategoryController.GetAllNames">
+            <summary>
+            Все имена категорий
+            </summary>
+            <returns>Все имена категорий</returns>
+        </member>
+        <member name="M:Gedonist.Controllers.CategoryController.GetAllWithRelationships">
+            <summary>
+            Доступ к категориям со всеми связанными объектами
+            </summary>
+            <returns>Категории со всеми объектами</returns>
+        </member>
+        <member name="M:Gedonist.Controllers.CategoryController.GetById(System.Int32)">
+            <summary>
+            Возвращает категорию по id
+            </summary>
+            <param name="id">id категории</param>
+            <returns>Категория</returns>
+        </member>
+        <member name="M:Gedonist.Controllers.CategoryController.GetByName(System.String)">
+            <summary>
+            Возвращает категорию по названию, накатить индексы на названия
+            </summary>
+            <param name="name">name категории</param>
+            <returns>Категория</returns>
+        </member>
+        <member name="M:Gedonist.Controllers.CategoryController.Create(Gedonist.Core.BindingModels.BindingCategory)">
+            <summary>
+            Создает категорию с заданными базовыми свойствами
+            </summary>
+            <param name="category">экзепляр, получаемый из формы</param>
+            <returns>СтатусКод</returns>
+        </member>
+        <member name="M:Gedonist.Controllers.CategoryController.Update(Gedonist.Core.BindingModels.BindingCategory)">
+            <summary>
+            Обновляет базовые поля категории
+            </summary>
+            <param name="bindingCategory">обновленная категория, (базовые поля)</param>
+            <returns>СтатусКод</returns>
+        </member>
+        <member name="M:Gedonist.Controllers.CategoryController.Delete(System.Int32)">
+            <summary>
+            Удаляет категорию каскадно, обрывая связи
+            </summary>
+            <param name="id">id категории, которую нужно удалить</param>
+            <returns>СтатусКод</returns>
+        </member>
+        <member name="T:Gedonist.Controllers.ProductCategoryBindController">
+            <summary>
+            Контроллер работы с связями Product --- Category
+            </summary>
+        </member>
+        <member name="M:Gedonist.Controllers.ProductCategoryBindController.#ctor(Gedonist.Core.Interfaces.IProductCategoryBindsService)">
+            <summary>
+            Контроллер работы с связями Product --- Category
+            </summary>
+        </member>
+        <member name="M:Gedonist.Controllers.ProductCategoryBindController.GetAll">
+            <summary>
+            Возвращает все связи Product --- Category
+            </summary>
+            <returns>Коллекция связей, со всеми свойствами</returns>
+        </member>
+        <member name="M:Gedonist.Controllers.ProductCategoryBindController.Create(Gedonist.Core.BindingModels.BindingProductCategory)">
+            <summary>
+            Создает связь Product -- Category
+            </summary>
+            <param name="bind">Id Категории и Id Продукта в одной модели</param>
+            <returns>СтатусКод</returns>
+        </member>
+        <member name="M:Gedonist.Controllers.ProductCategoryBindController.Delete(Gedonist.Core.BindingModels.BindingProductCategory)">
+            <summary>
+            Удаляет связь Product --- Category
+            </summary>
+            <param name="bind">Id Категории и Id Продукта в одной модели</param>
+            <returns>СтатусКод</returns>
+        </member>
+        <member name="M:Gedonist.Controllers.ProductCategoryBindController.Update(Gedonist.Core.BindingModels.UpdateCategoryProductBinds)">
+            <summary>
+            Пересоздает все отношения у категории с объектами
+            </summary>
+            <param name="binds">Коллекция Id Продуктов + name категории</param>
+            <returns>СтатусКод</returns>
+        </member>
+        <member name="T:Gedonist.Controllers.ProductsController">
+            <summary>
+            Контроллер работы с продуктами
+            </summary>
+        </member>
+        <member name="M:Gedonist.Controllers.ProductsController.#ctor(Gedonist.Core.Interfaces.IProductsService)">
+            <summary>
+            Контроллер работы с продуктами
+            </summary>
+        </member>
+        <member name="M:Gedonist.Controllers.ProductsController.Create(Gedonist.Core.BindingModels.BindingProduct)">
+            <summary>
+            Создание продукта с базовыми свойствами
+            </summary>
+            <param name="bindingProduct">базовые параметры продукта в модели</param>
+            <returns>СтатусКод</returns>
+        </member>
+        <member name="M:Gedonist.Controllers.ProductsController.GetById(System.Int32)">
+            <summary>
+            Возвращает продукт по id
+            </summary>
+            <param name="id">id продукта</param>
+            <returns>Получение по id</returns>
+        </member>
+        <member name="M:Gedonist.Controllers.ProductsController.GetAll">
+            <summary>
+            Вовзращает все продукты без связей
+            </summary>
+            <returns>Коллекцию продуктов</returns>
+        </member>
+        <member name="M:Gedonist.Controllers.ProductsController.Delete(System.Int32)">
+            <summary>
+            Каскадное удаление продукта
+            </summary>
+            <param name="id">id продукта</param>
+            <returns>СтатусКод</returns>
+        </member>
+        <member name="M:Gedonist.Controllers.ProductsController.Update(Gedonist.Core.Models.Product)">
+            <summary>
+            Обновление базовых свойств продукта
+            </summary>
+            <param name="product">обновленный продукт</param>
+            <returns>СтатусКод</returns>
+        </member>
+    </members>
+</doc>
