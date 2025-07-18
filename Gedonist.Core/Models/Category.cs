@@ -1,6 +1,7 @@
 ﻿
 namespace Gedonist.Core.Models
 {
+    [Serializable]
     public class Category
     {
         public int Category_Id { get; set; }

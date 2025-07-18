@@ -104,44 +104,44 @@
             <param name="binds">Коллекция Id Продуктов + name категории</param>
             <returns>СтатусКод</returns>
         </member>
-        <member name="T:Gedonist.Controllers.ProductsController">
+        <member name="T:Gedonist.Controllers.ProductController">
             <summary>
             Контроллер работы с продуктами
             </summary>
         </member>
-        <member name="M:Gedonist.Controllers.ProductsController.#ctor(Gedonist.Core.Interfaces.IProductsService)">
+        <member name="M:Gedonist.Controllers.ProductController.#ctor(Gedonist.Core.Interfaces.IProductsService)">
             <summary>
             Контроллер работы с продуктами
             </summary>
         </member>
-        <member name="M:Gedonist.Controllers.ProductsController.Create(Gedonist.Core.BindingModels.BindingProduct)">
+        <member name="M:Gedonist.Controllers.ProductController.Create(Gedonist.Core.BindingModels.BindingProduct)">
             <summary>
             Создание продукта с базовыми свойствами
             </summary>
             <param name="bindingProduct">базовые параметры продукта в модели</param>
             <returns>СтатусКод</returns>
         </member>
-        <member name="M:Gedonist.Controllers.ProductsController.GetById(System.Int32)">
+        <member name="M:Gedonist.Controllers.ProductController.GetById(System.Int32)">
             <summary>
             Возвращает продукт по id
             </summary>
             <param name="id">id продукта</param>
             <returns>Получение по id</returns>
         </member>
-        <member name="M:Gedonist.Controllers.ProductsController.GetAll">
+        <member name="M:Gedonist.Controllers.ProductController.GetAll">
             <summary>
             Вовзращает все продукты без связей
             </summary>
             <returns>Коллекцию продуктов</returns>
         </member>
-        <member name="M:Gedonist.Controllers.ProductsController.Delete(System.Int32)">
+        <member name="M:Gedonist.Controllers.ProductController.Delete(System.Int32)">
             <summary>
             Каскадное удаление продукта
             </summary>
             <param name="id">id продукта</param>
             <returns>СтатусКод</returns>
         </member>
-        <member name="M:Gedonist.Controllers.ProductsController.Update(Gedonist.Core.Models.Product)">
+        <member name="M:Gedonist.Controllers.ProductController.Update(Gedonist.Core.Models.Product)">
             <summary>
             Обновление базовых свойств продукта
             </summary>

@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Gedonist.Core.Models
 {
+    [Serializable]
     public class Product
     {
         public int Product_Id { get; set; }

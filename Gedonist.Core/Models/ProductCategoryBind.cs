@@ -2,6 +2,7 @@
 
 namespace Gedonist.Core.Models
 {
+    [Serializable]
     public class ProductCategoryBind
     {
         public int Product_Id { get; set; }

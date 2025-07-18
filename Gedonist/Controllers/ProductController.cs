@@ -2,6 +2,7 @@
 using Gedonist.Core.Models;
 using Gedonist.Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace Gedonist.Controllers
 {
@@ -11,7 +12,7 @@ namespace Gedonist.Controllers
      
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController(IProductsService productsService) : ControllerBase
+    public class ProductController(IProductsService productsService) : ControllerBase
     {
         private readonly IProductsService productsService = productsService;
 
