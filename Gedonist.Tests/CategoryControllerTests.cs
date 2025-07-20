@@ -205,9 +205,36 @@ namespace Gedonist.Tests
             var result = await controller.Delete(-1);
 
             //Assert
-            Assert.IsType<NotFoundResult>(result);
+            Assert.IsType<ConflictObjectResult>(result);
         }
 
+        [Fact]
+        public async Task GetByName_string_OkCategory()
+        {
+            //Arrange
+            var mock = new Mock<ICategoriesService>();
+            mock.Setup(x => x.GetByName("P")).Returns(Task.FromResult<Category?>(new Category()));
+            CategoryController controller = new CategoryController(mock.Object);
+            //Action
+            var result = await controller.GetByName("P");
+
+            //Assert
+            Assert.IsType<OkObjectResult>(result);
+        }
+
+        [Fact]
+        public async Task GetByName_noncorrectstring_NotFound()
+        {
+            //Arrange
+            var mock = new Mock<ICategoriesService>();
+            mock.Setup(x => x.GetByName("P")).Returns(Task.FromResult<Category?>(null));
+            CategoryController controller = new CategoryController(mock.Object);
+            //Action
+            var result = await controller.GetByName("P");
+
+            //Assert
+            Assert.IsType<NotFoundResult>(result);
+        }
 
     }
 }
