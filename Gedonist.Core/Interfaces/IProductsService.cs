@@ -26,7 +26,7 @@ namespace Gedonist.Core.Interfaces
         /// </summary>
         /// <param name="product">updated product</param>
         /// <returns>false if operation is not valid, otherwise true</returns>
-        public Task<bool> Update(Product product);
+        public Task<bool> Update(BindingProduct product);
 
         /// <summary>
         /// Delete current product

@@ -79,15 +79,15 @@ namespace Gedonist.Controllers
         /// <summary>
         /// Обновление базовых свойств продукта
         /// </summary>
-        /// <param name="product">обновленный продукт</param>
+        /// <param name="bindingProduct">обновленный продукт</param>
         /// <returns>СтатусКод</returns>
 
         [HttpPatch(nameof(Update))]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> Update( [FromBody] Product product)
+        public async Task<IActionResult> Update( [FromBody] BindingProduct bindingProduct)
         {
-            bool result = await productsService.Update(product);
+            bool result = await productsService.Update(bindingProduct);
             return result ? Ok() : NotFound();
         }
     }

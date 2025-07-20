@@ -141,11 +141,11 @@
             <param name="id">id продукта</param>
             <returns>СтатусКод</returns>
         </member>
-        <member name="M:Gedonist.Controllers.ProductController.Update(Gedonist.Core.Models.Product)">
+        <member name="M:Gedonist.Controllers.ProductController.Update(Gedonist.Core.BindingModels.BindingProduct)">
             <summary>
             Обновление базовых свойств продукта
             </summary>
-            <param name="product">обновленный продукт</param>
+            <param name="bindingProduct">обновленный продукт</param>
             <returns>СтатусКод</returns>
         </member>
     </members>

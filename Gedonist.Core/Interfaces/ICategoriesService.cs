@@ -17,7 +17,7 @@ namespace Gedonist.Core.Interfaces
         /// </summary>
         /// <param name="category">updated category</param>
         /// <returns>false if operation is not valid, otherwise true</returns>
-        public Task<bool> Update(Category category);
+        public Task<bool> Update(BindingCategory category);
 
         /// <summary>
         /// Get all categories in the DB with all of it's data without relationships

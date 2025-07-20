@@ -27,11 +27,18 @@ namespace Gedonist.DataAccess.Repositories
 
         public async Task<bool> Delete(int id)
         {
-            Product? Product = await _context.Products.Where(p => p.Product_Id == id).Include(p => p.ProductCategoryBind).FirstAsync();
-            if (Product == null) return false;
-            _context.Products.Remove(Product);
-            await _context.SaveChangesAsync();
-            return true;
+            try
+            {
+                Product? Product = await _context.Products.Where(p => p.Product_Id == id).Include(p => p.ProductCategoryBind).FirstAsync();
+                if (Product == null) return false;
+                _context.Products.Remove(Product);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (InvalidOperationException)
+            {
+                return false;
+            }
         }
 
         public async Task<List<Product>?> GetAll()
@@ -44,16 +51,24 @@ namespace Gedonist.DataAccess.Repositories
             return await _context.Products.FindAsync(id);
         }
 
-        public async Task<bool> Update(Product product)
+        public async Task<bool> Update(BindingProduct bindingProduct)
         {
             //Расширить с разными кодами ошибок
-            await _context.Products.Where(p => p.Product_Id == product.Product_Id)
+            try
+            {
+                Product product = new Product() { Name = bindingProduct.Name, Description = bindingProduct.Description, Price = bindingProduct.Price };
+                await _context.Products.Where(p => p.Product_Id == product.Product_Id)
                 .ExecuteUpdateAsync(s => s
                 .SetProperty(p => p.Name, p => product.Name)
                 .SetProperty(p => p.Price, p => product.Price)
                 .SetProperty(p => p.Description, p => product.Description));
-            await _context.SaveChangesAsync();
-            return true;
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                return false;
+            }
         }
     }
 }

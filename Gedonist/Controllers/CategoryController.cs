@@ -112,7 +112,7 @@ namespace Gedonist.Controllers
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         public async Task<IActionResult> Update([FromBody] BindingCategory bindingCategory)
         {
-            bool result = await categoriesService.Update(new Category { Name = bindingCategory.Name });
+            bool result = await categoriesService.Update(bindingCategory);
             return result == false ? Conflict("Не получилось обновить") : Ok();
         }
 
